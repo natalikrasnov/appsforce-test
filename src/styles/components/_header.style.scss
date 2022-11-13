@@ -1,0 +1,22 @@
+@use '../basic.style';
+
+.header{
+    height: 100px;
+    width: 100%;
+    background-color: rgba(basic.$main_color, 0.05);
+    border-bottom: 2px solid basic.$main_color;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .company_name{
+        font-size: 0.7rem;
+    }
+
+    .header_title{
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+}

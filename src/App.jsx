@@ -1,10 +1,17 @@
+import { Header } from "./components"
+import strings from "./utils/Strings.json"
+import UsersContextProvider from './hookes/context/users.context'
+import { MainUsersPage } from "./pages/mainUsers.component"
 
 function App() {
 
   return (
-    <div className="App">
-     
-    </div>
+    <>
+      <Header title={strings["app_name"]} />
+      <UsersContextProvider>
+        <MainUsersPage />
+      </UsersContextProvider>
+    </>
   )
 }
 
