@@ -10,7 +10,12 @@
         flex-wrap: wrap;
         margin: auto;
         // max-width: 80%;
+        width: auto;
         justify-content: center;
+
+        @include basic.desktopScreenSize {
+            width: 80%;
+        }
 
         form{
             display: flex;

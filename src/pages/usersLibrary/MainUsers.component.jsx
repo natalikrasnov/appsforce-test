@@ -29,19 +29,19 @@ export function MainUsersPage() {
         const inputValue = searchInput?.target?.value?.toLowerCase()
         if (!inputValue) setFilteredUsers(null)
             
-            const usersD = users.filter(user =>
+        // const usersD = users.filter(user => {
+        //     const stringify = JSON.stringify(user).toLowerCase()
+        //     return stringify.includes(inputValue)
+        // }
+        // )
+        // debugger
+        else setFilteredUsers(
+            users.filter(user =>
                 JSON.stringify(user)
                     .toLowerCase()
-                    .includes(searchInput)
+                    .includes(inputValue)
+            )
         )
-        debugger
-        // else setFilteredUsers(...
-        //     users.filter(user =>
-        //         !JSON.stringify(user)
-        //             .toLowerCase()
-        //             .includes(searchInput)
-        //     )
-        // )
     }
 
     const usersData = filteredUsers ?? users
