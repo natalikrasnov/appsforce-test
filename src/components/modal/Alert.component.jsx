@@ -1,3 +1,4 @@
+import { SubmitButtons } from "../buttons/SubmitButtons.component";
 import { PopupModal } from "./PopupModal.component";
 
 export function Alert({
@@ -8,32 +9,21 @@ export function Alert({
     onSubmit
 }) {
 
-    const onButtonYes = () => {
-        console.log("yes")
-
-        onSubmit(true)
-    }
-    const onButtonCancel = () => {
-        console.log("cancel")
+    const onCloseNcancel = () => {
         onSubmit(false)
     }
-    
+    console.log("alert")
+
     return (
-        <PopupModal closeModal={onButtonCancel}>
+        <PopupModal closeModal={onCloseNcancel}>
             <div className="alert">
-               <h2>{title}</h2>
+               <h3>{title}</h3>
                 <p>{message}</p>
-                <div className="actions_buttons">
-                    {isOkButton &&
-                        <button onClick={onButtonYes} className="button_ok">
-                            Yes
-                        </button>
-                    }
-                    {isCancelButton &&
-                        <button onClick={onButtonCancel} className="button_cancel">
-                            cancel
-                        </button>}
-                </div> 
+                <SubmitButtons
+                    onSubmit={onSubmit}
+                    isOkButton={isOkButton}
+                    isCancelButton={isCancelButton}
+                />
             </div>
         </PopupModal>
     )

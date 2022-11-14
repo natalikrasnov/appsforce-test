@@ -1,0 +1,13 @@
+.actions_buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .button_cancel{
+        background-color: rgba(255, 0, 0, 0.5);
+    }
+
+    .button_ok{
+        background-color: rgba(3, 171, 3, 0.5);
+    }
+}

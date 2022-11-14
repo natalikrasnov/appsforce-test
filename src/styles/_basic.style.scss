@@ -3,3 +3,10 @@ $main_color: rgb(221, 160, 221);
 *{
     box-sizing: border-box;
 }
+
+@mixin desktopScreenSize {
+    @media (min-width: 600px) {
+        @content;
+    }
+    
+}

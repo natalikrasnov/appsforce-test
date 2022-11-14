@@ -5,13 +5,16 @@ import config from '../../../config/default.json'
 import { setUsersAction } from '../../hookes/actions/users.action'
 import { doGETrequest } from "../../utils/service";
 import { getUsersParsed } from "../../utils/userParse";
-import { CustomTable ,SearchInput} from "../../components";
+import { CustomTable ,SearchInput, AddButton} from "../../components";
 import { useState } from "react";
+import { AddUser } from "./actions/AddUser.component";
 
 export function MainUsersPage() {
 
     const { users, dispatchUsers} = useContext(UsersContext)
-    const [ filteredUsers, setFilteredUsers ] = useState(null)
+    const [filteredUsers, setFilteredUsers] = useState(null)
+    const [isAddUserPopupOpen, setIsAddUserPopupOpen] = useState(false)
+
     
     useEffect(() => { 
         //axios is preferred
@@ -42,11 +45,17 @@ export function MainUsersPage() {
     }
 
     const usersData = filteredUsers ?? users
+
+    const handleAddUserPopup = () => {
+        setIsAddUserPopupOpen(!isAddUserPopupOpen) 
+    }
     
     return (
         <div className="main-user-page">
             <SearchInput onChange={ updateSearch } />
-            <CustomTable data={usersData}  />
+            <CustomTable data={usersData} />
+            <AddButton onClick={handleAddUserPopup}/>
+            {isAddUserPopupOpen && <AddUser onClose={handleAddUserPopup } />}
         </div>
     )
 }

@@ -6,7 +6,7 @@ export function CustomTable({ data }) {
     const [popupModalData, setPopupModalData] = useState(null)
 
     const openPopUpModal = (data) => {
-        console.log("click")
+        console.log("click", data)
         setPopupModalData(data ? data : null)
     }
 

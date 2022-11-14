@@ -4,20 +4,23 @@ import { deleteUserAction } from "../../hookes/actions/users.action"
 import { UsersContext } from "../../hookes/context/users.context"
 import { Alert } from "../modal/Alert.component"
 import { UserInfo } from "./UserInfo.component"
-import config from '../../../config/default.json'
+import strings from '../../utils/Strings.json'
 
-export function UserDataCard({ userData, isEdit, className, elementClicked, elementDeleted }) {
+export function UserDataCard({ userData, className="", elementClicked, elementDeleted }) {
     
     const { dispatchUsers } = useContext(UsersContext)
     const [isOpenAlert, setIsOpenAlert] = useState(false)
+    const [isOpenEdit, setIsOpenEdit] = useState(false)
+
     
     const onElementClick = () => {
-        elementClicked(userData)
+        // elementClicked(userData)
     }
 
     const onElementDeleteClick = () => {
         setIsOpenAlert(true)
     }
+
     const onAlertActionReceive = (isSubmit) => {
         if(isSubmit) dispatchUsers(deleteUserAction(userData.id))
         setIsOpenAlert(false)
@@ -25,18 +28,22 @@ export function UserDataCard({ userData, isEdit, className, elementClicked, elem
 
 
     return (
-        <div className={`user-data-card ${className}`} onClick={ onElementClick }>
-            {userData.image && <img src={userData.image} />}
-            <UserInfo userData={ userData} />
-            {elementDeleted &&
-                <span>
-                    <button className="delete" onClick={onElementDeleteClick}>X</button>
-                    {
-                        isOpenAlert &&
-                        <Alert title={config.deleteMessage} onSubmit={onAlertActionReceive} />
-                    }
-                </span>
-               }
-        </div>
+        <>
+            <div className={`user-data-card ${className}`} onClick={ onElementClick }>
+                <UserInfo userData={ userData} />
+                {elementDeleted &&
+                    <span>
+                        <button className="delete" onClick={onElementDeleteClick}>X</button>
+                        { isOpenAlert &&
+                            <Alert
+                                title={strings["delete_message"]}
+                            onSubmit={onAlertActionReceive}
+                            isOkButton
+                            isCancelButton
+                            />}
+                    </span>
+                }
+            </div>
+        </>
     )
 }
