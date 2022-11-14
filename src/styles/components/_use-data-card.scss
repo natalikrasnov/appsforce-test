@@ -1,0 +1,17 @@
+@use '../basic.style';
+
+.user-data-card{
+    margin:0.5rem;
+    padding: 0.5rem;
+    // border: 1px solid basic.$main_color;
+    background-color: rgba(basic.$main_color,10%);
+    box-shadow: 0px 0px 3px 1px black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: stretch;
+    gap: 2rem;
+
+    img{
+        object-fit: contain;
+    }
+}

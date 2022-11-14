@@ -1,17 +1,32 @@
-import {Row} from './Row.component'
+import { useState } from 'react'
+import { UserDataCard } from '../card/UserDataCard.component'
+import { PopupModal } from '../modal/PopupModal.component'
+
 export function CustomTable({ data }) {
+    const [popupModalData, setPopupModalData] = useState(null)
+
+    const openPopUpModal = (data) => {
+        console.log("click")
+        setPopupModalData(data ? data : null)
+    }
 
     return (
-        <table className="custom-table">
-            <thead>
-                <Row rowData={data[0]} isHeader/>
-            </thead>
-            {data && data.map((el, index) => (
-                index > 0 &&
-                <tbody key={index} >
-                    <Row rowData={el} />
-                </tbody>
-            ))}
-        </table>
+        <div className="custom-table">
+            <>
+                {
+                    data && data.map(
+                        (el, index) => (
+                            <UserDataCard
+                                key={index}
+                                userData={el}
+                                elementClicked={openPopUpModal}
+                                elementDeleted
+                            />
+                        )
+                    )
+                }
+                {popupModalData && <PopupModal />}
+            </>
+        </div>
     )
 }

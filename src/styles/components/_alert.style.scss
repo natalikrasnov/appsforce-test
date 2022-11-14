@@ -1,0 +1,11 @@
+.alert{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .actions_buttons{
+        display: flex;
+        justify-content: space-between;
+    }
+}

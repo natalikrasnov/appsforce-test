@@ -11,8 +11,8 @@ export function getUsersParsed(originalUsersData) {
     image: userData.picture.medium,
     name: {
       title: userData.name.title,
-      "first name": userData.name.first,
-      "last name": userData.name.last,
+      firstName: userData.name.first,
+      lastName: userData.name.last,
     },
     email: userData.email,
     

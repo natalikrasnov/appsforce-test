@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { useContext } from "react";
-import { UsersContext } from "../hookes/context/users.context";
-import config from '../../config/default.json'
-import { setUsersAction } from '../hookes/actions/users.action'
-import { doGETrequest } from "../utils/service";
-import { getUsersParsed } from "../utils/userParse";
-import { CustomTable ,SearchInput} from "../components";
+import { UsersContext } from "../../hookes/context/users.context";
+import config from '../../../config/default.json'
+import { setUsersAction } from '../../hookes/actions/users.action'
+import { doGETrequest } from "../../utils/service";
+import { getUsersParsed } from "../../utils/userParse";
+import { CustomTable ,SearchInput} from "../../components";
 import { useState } from "react";
 
 export function MainUsersPage() {
@@ -15,6 +15,7 @@ export function MainUsersPage() {
     
     useEffect(() => { 
         //axios is preferred
+        if(users.length > 0 ) return
         doGETrequest(config.usersDataURL, (response => {
             const users = getUsersParsed(response)
             if (users) dispatchUsers(setUsersAction(users))

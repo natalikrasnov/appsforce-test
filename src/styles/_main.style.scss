@@ -2,4 +2,9 @@
 
 @use './pages/main-user-page.style';
 
+@use './components/use-data-card';
 @use './components/header.style';
+@use './components/search.style';
+@use './components/popup-modal.style';
+@use './components/user-data.component';
+@use './components/alert.style';
