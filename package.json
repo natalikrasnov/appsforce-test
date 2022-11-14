@@ -4,8 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "serve": "firebase emulators:export",
+    "deploy": "firebase deploy --only hosting",
     "dev": "vite",
-    "build": "vite build",
+    "start": "vite build",
+    "build": "",
     "preview": "vite preview"
   },
   "dependencies": {
