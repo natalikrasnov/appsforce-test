@@ -10,8 +10,8 @@ const usersReducer = (users, action) => {
             return [...users.filter(user => user.id !== action.userId)]
         case 'SAVE_USER':
             return users.map(user => {
-                if (user.id === action.userId) 
-                    return { ...user, ...action.newUserData }
+                if (user.id === action.newUserData.id)
+                  return { ...action.newUserData };
                 return user
             })
     }

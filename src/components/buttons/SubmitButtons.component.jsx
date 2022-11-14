@@ -1,9 +1,11 @@
-export function SubmitButtons({ onSubmit, isOkButton, isCancelButton }) {
+export function SubmitButtons({ onSubmit, isOkButton, isCancelButton, isSaveButton }) {
 
-    const onButtonYes = () => {
-        onSubmit(true)
+    const onButtonYes = (e) => {
+        e.preventDefault()
+        onSubmit(true, e)
     }
-    const onButtonCancel = () => {
+    const onButtonCancel = (e) => {
+        e.preventDefault()
         onSubmit(false)
     }
 
@@ -19,7 +21,7 @@ export function SubmitButtons({ onSubmit, isOkButton, isCancelButton }) {
             {
                 isOkButton &&
                 <button onClick={onButtonYes} className="button_ok" type="submit">
-                    Yes
+                   {isSaveButton ? "save" : " Yes"}
                 </button>
             }
         </div> 

@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
+export const userInfoFields = ["id", "image", "name.firstName", "email", "location",]
+
 export function getUsersParsed(originalUsersData) {
   // 1. Name - title, first name, last name.
   // 2. Email.

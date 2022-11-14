@@ -6,9 +6,9 @@ import { SaveAction } from "./SaveAction.component";
 export function AddUser({ onClose }) {
     const { dispatchUsers } = useContext(UsersContext)
 
-    const handleData = (data) => {
-        if (!data)  onClose()
-            else dispatchUsers(addUserAction(data))
+    const handleData = (data, isSave) => {
+        if (isSave) dispatchUsers(addUserAction(data))
+        onClose()
     }
     
     return (

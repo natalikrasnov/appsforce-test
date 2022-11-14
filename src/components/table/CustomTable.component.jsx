@@ -25,7 +25,6 @@ export function CustomTable({ data }) {
                         )
                     )
                 }
-                {popupModalData && <PopupModal />}
             </>
         </div>
     )

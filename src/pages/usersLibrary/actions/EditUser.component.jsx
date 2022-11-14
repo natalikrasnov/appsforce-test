@@ -3,15 +3,15 @@ import {  saveUserAction } from "../../../hookes/actions/users.action";
 import { UsersContext } from "../../../hookes/context/users.context";
 import { SaveAction } from "./SaveAction.component";
 
-export function AddUser({ onClose }) {
+export function EditUser({ onClose , userInfo}) {
     const { dispatchUsers } = useContext(UsersContext)
 
-    const handleData = (data) => {
-        if (!data) onClose()
-        else dispatchUsers(saveUserAction(data))
+    const handleData = (data, isSave) => {
+        if (isSave) dispatchUsers(saveUserAction(data))
+        onClose()
     }
 
     return (
-        <SaveAction handleData={handleData} />
+        <SaveAction handleData={handleData} userInfo={ userInfo}  />
     )
 }

@@ -12,7 +12,6 @@ export function Alert({
     const onCloseNcancel = () => {
         onSubmit(false)
     }
-    console.log("alert")
 
     return (
         <PopupModal closeModal={onCloseNcancel}>

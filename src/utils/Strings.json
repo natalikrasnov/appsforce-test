@@ -1,5 +1,8 @@
 {
     "app_name" : "The Users Library" ,
     "company_name":"appsforce test: Natali Krasnov",
-    "delete_message": "Are you sure you want to delete this item?"
+    "delete_message": "Are you sure you want to delete this item?",
+    "fieldsEmptyError": "Please fill all fields, you have some empty fields",
+    "emailError": "Your email is invalid, please try again.",
+    "nameError": "Your name is too short, please try again."
 }
