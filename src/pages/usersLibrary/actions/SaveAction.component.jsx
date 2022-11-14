@@ -7,7 +7,6 @@ export function SaveAction({ handleData, userInfo }) {
     const [errorMassage, setErrorMessage] = useState(null)
     
     const checkValidation = (userData) => {
-        debugger
         if (JSON.stringify(userData).includes('""')) {
             setErrorMessage(strings.fieldsEmptyError)
             return false

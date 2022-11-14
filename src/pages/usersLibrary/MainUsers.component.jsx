@@ -28,13 +28,6 @@ export function MainUsersPage() {
     const updateSearch = (searchInput) => {
         const inputValue = searchInput?.target?.value?.toLowerCase()
         if (!inputValue) setFilteredUsers(null)
-            
-        // const usersD = users.filter(user => {
-        //     const stringify = JSON.stringify(user).toLowerCase()
-        //     return stringify.includes(inputValue)
-        // }
-        // )
-        // debugger
         else setFilteredUsers(
             users.filter(user =>
                 JSON.stringify(user)
